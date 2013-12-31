@@ -3,8 +3,8 @@
     define
 */
 
-define('PM/Utils/Utils', [
-    'PM/Core/Core'
+define('PM/Utils', [
+    'PM/Core'
 ], function (PM) {
     'use strict';
 

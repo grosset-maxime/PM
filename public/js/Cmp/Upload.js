@@ -3,14 +3,16 @@
     define
 */
 
-define('PM/Cmp/Upload/Upload', [
+define('PM/Cmp/Upload', [
     'jquery',
-    'js!jquery-inherit',
 
     // PM
-    'PM/Core/Core',
-    'PM/Utils/Utils',
-    'PM/Cmp/Upload/FormData'
+    'PM/Core',
+    'PM/Utils',
+    'PM/Cmp/Upload/FormData',
+
+    // Non AMD
+    'js!jquery-inherit'
 ], function ($, PM, Utils, FormData) {
     'use strict';
 

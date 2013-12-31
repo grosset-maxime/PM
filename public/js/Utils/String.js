@@ -4,8 +4,8 @@
 */
 
 define('PM/Utils/String', [
-    'PM/Core/Core',
-    'PM/Utils/Utils'
+    'PM/Core',
+    'PM/Utils'
 ], function (PM, Utils) {
     'use strict';
 

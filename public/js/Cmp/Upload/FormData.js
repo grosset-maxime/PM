@@ -5,11 +5,13 @@
 
 define('PM/Cmp/Upload/FormData', [
     'jquery',
-    'js!jquery-inherit',
 
     // PM
-    'PM/Core/Core',
-    'PM/Cmp/Upload/Upload'
+    'PM/Core',
+    'PM/Cmp/Upload',
+
+    // Non AMD
+    'js!jquery-inherit'
 ], function ($, PM, Upload) {
     'use strict';
 
