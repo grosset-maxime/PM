@@ -93,23 +93,22 @@ define('PM/Cmp/Abstract', [
 
         /**
          * Destroy the Cmp elements and its children.
-         * Remove all events and remove the element from the dom.
+         * Remove the element from the dom.
          * This Cmp and its children should not be used
             after this.
          */
         destroy: function () {
-            var el,
-                els = this.els || {};
+            var els = this.els || {};
 
             // Remove Elements
-            for (el in els) {
-                if (els.hasOwnProperty(el)) {
-                    els[el].destroy();
+            $.each(els, function (i, el) {
+                if (els.hasOwnProperty(i)) {
+                    el.remove();
 
                     // Remove reference
                     delete els[el];
                 }
-            }
+            });
 
             // Remove Options
             delete this.options;
