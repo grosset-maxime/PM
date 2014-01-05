@@ -35,17 +35,17 @@ define('PM/Utils/Client', [
          * Stores OS infOS.
          *
          * Possible values:
-         *   > OS.mac         true if the OS is mac
-         *   > OS.windows     true if the OS is windows
-         *   > OS.linux       true if the OS is linux
-         *   > OS.webOS       true if the OS is webOS
-         *   > OS.iOS         true if the OS is iOS (ipod/iphone/ipad)
-         *   > OS.blackberry  true if the OS is blackberry
-         *   > OS.android     true if the OS is android
-         *   > OS.ipad        true if the OS is ipad
-         *   > OS.tablet      true if the OS is tablet
-         *   > OS.other       true if the OS is neither mac, windows or linux
-         *   > OS.name        is set to the name of the OS
+         *   > OS.mac        true if the OS is mac
+         *   > OS.win        true if the OS is windows
+         *   > OS.linux      true if the OS is linux
+         *   > OS.webOS      true if the OS is webOS
+         *   > OS.iOS        true if the OS is iOS (ipod/iphone/ipad)
+         *   > OS.blackberry true if the OS is blackberry
+         *   > OS.android    true if the OS is android
+         *   > OS.ipad       true if the OS is ipad
+         *   > OS.tablet     true if the OS is tablet
+         *   > OS.other      true if the OS is neither mac, windows or linux
+         *   > OS.name       is set to the name of the OS
          */
         OS: {
             name: 'unknown'
