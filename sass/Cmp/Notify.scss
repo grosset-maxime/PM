@@ -1,0 +1,12 @@
+// ========================
+// PM/Cmp/Notify
+// ========================
+
+// Compass mixins
+// --------------
+@import 'compass/css3';
+@import 'compass/css3/user-interface';
+
+.pm_notify_cmp {
+    display: none;
+}
