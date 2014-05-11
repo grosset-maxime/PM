@@ -37,8 +37,15 @@ define('PM/Cmp/Notify', [
          */
         defaultOptions: {
             className: '',
-            container: null
+            container: null,
+            autoHide: false,
+            duration: 3
         },
+
+        /**
+         * @private
+         */
+        hideTimeout: null,
 
         /**
          * @constructor Notify.
@@ -66,11 +73,24 @@ define('PM/Cmp/Notify', [
                 options = that.options;
 
             // Main ctn.
-            ctn = els.ctn = $('<div>', {
+            ctn = els.container = $('<div>', {
                 'class': 'pm_notify_cmp ' + options.className,
                 html: $('<div>', {
-                    'class': 'close'
-                })
+                    'class': 'close',
+                    text: 'x',
+                    on: {
+                        click: function (e) {
+                            e.stopPropagation();
+                            that.hide();
+                        }
+                    }
+                }),
+                on: {
+                    click: function () {
+                        clearTimeout(that.hideTimeout);
+                        that.hideTimeout = null;
+                    }
+                }
             });
 
             messageCtn = els.messageCtn = $('<div>', {
@@ -93,20 +113,20 @@ define('PM/Cmp/Notify', [
          */
         setMessage: function (message, type, display) {
             var els = this.els,
-                ctn = els.ctn,
+                container = this.getContainer(),
                 messageCtn = els.messageCtn;
 
-            ctn.removeClass(TYPE_ERROR + ' ' + TYPE_WARNING + ' ' + TYPE_INFO);
+            container.removeClass(TYPE_ERROR + ' ' + TYPE_WARNING + ' ' + TYPE_INFO);
 
             switch (type) {
             case TYPE_ERROR:
-                ctn.addClass(TYPE_ERROR);
+                container.addClass(TYPE_ERROR);
                 break;
             case TYPE_WARNING:
-                ctn.addClass(TYPE_WARNING);
+                container.addClass(TYPE_WARNING);
                 break;
             case TYPE_INFO:
-                ctn.addClass(TYPE_INFO);
+                container.addClass(TYPE_INFO);
                 break;
             }
 
@@ -115,7 +135,43 @@ define('PM/Cmp/Notify', [
             if (display) {
                 this.show();
             }
-        } // End function setMessage()
+        }, // End function setMessage()
+
+        /**
+         *
+         */
+        show: function () {
+            var that = this,
+                duration, hideTimeout,
+                options = that.options;
+
+            that.getContainer().fadeIn('slow');
+
+            if (options.autoHide) {
+                duration = options.duration;
+                hideTimeout = that.hideTimeout;
+
+                if (!duration || duration < 1) {
+                    duration = 1;
+                }
+
+                if (hideTimeout) {
+                    clearTimeout(hideTimeout);
+                }
+
+                that.hideTimeout = setTimeout(function () {
+                    that.hide();
+                    that.hideTimeout = null;
+                }, duration * 1000);
+            }
+        }, // End function show()
+
+        /**
+         *
+         */
+        hide: function () {
+            this.getContainer().fadeOut('fast');
+        } // End function show()
     }, staticObj); // End Class Notify()
 
     return Notify;

@@ -1,4 +1,42 @@
 /* line 10, ../../../sass/Cmp/Notify.scss */
 .pm_notify_cmp {
   display: none;
+  width: 400px;
+  position: absolute;
+  text-align: center;
+  padding: 24px;
+  z-index: 1000;
+  border-radius: 3px;
+  left: calc(50% - 200px);
+  top: 25px;
+  box-shadow: 3px 3px 5px -2px #555;
+  border: 1px solid #333;
+}
+/* line 23, ../../../sass/Cmp/Notify.scss */
+.pm_notify_cmp.error {
+  background-color: rgba(205, 51, 51, 0.95);
+}
+/* line 27, ../../../sass/Cmp/Notify.scss */
+.pm_notify_cmp.info {
+  background-color: rgba(0, 191, 255, 0.95);
+}
+/* line 31, ../../../sass/Cmp/Notify.scss */
+.pm_notify_cmp.warning {
+  background-color: rgba(255, 97, 3, 0.95);
+}
+/* line 35, ../../../sass/Cmp/Notify.scss */
+.pm_notify_cmp .close {
+  position: absolute;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  top: 0;
+  right: 0px;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+/* line 46, ../../../sass/Cmp/Notify.scss */
+.pm_notify_cmp .close:hover {
+  opacity: 1;
 }
