@@ -3,7 +3,7 @@ PM
 
 Personal Manager framework.
 
-> MKLINK [[/D] | [/H] | [/J]] Lien Cible
+> **MKLINK [[/D] | [/H] | [/J]] Lien Cible**
 
 > /D : Crée un lien symbolique vers un répertoire. Par défaut, il s'agit d'un lien symbolique vers un fichier.
 
